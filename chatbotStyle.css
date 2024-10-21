@@ -1,0 +1,203 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial;
+    color: white;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right top, hsl(0, 0%, 76%),hsl(0, 0%, 91%));
+    background-repeat: no-repeat;
+    font-family: "Roboto", sans-serif; 
+
+    
+}
+
+:root{
+    --primary-color:rgb(31, 31, 31);         /* hsl(260, 64%, 52%); */
+}
+
+.chatbot-container{
+    background-color: white;
+    width: 650px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+    overflow: hidden;
+    position: relative;
+    margin: 0 15px;
+}
+.chatbot-header{
+    background-color:var(--primary-color);
+    padding: 10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 24px;
+}
+.picture-container{
+  background-color: white;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bot-pic{
+    border: 1px solid rgb(226, 226, 226);
+}
+.chatbot-header-text{
+    font-weight: bold;
+}
+.chatbot-header-left{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.chatbot-header-right{
+    transform: rotate(90deg);
+    cursor: pointer;
+    height: 30px;
+ 
+}
+.message{
+    display: flex;
+    align-items: flex-end;
+    color: rgb(99, 99, 99);
+    gap: 8px;
+}
+.chatbot-body{
+    height: 490px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 40px 14px 70px 14px;
+    color: rgb(99, 99, 99);
+    font-size: 13px;
+    overflow-y: auto;
+    
+}
+.chatbot-body::-webkit-scrollbar{
+    display: none;
+}
+.bot-message{
+    background-color: rgb(247, 247, 247);
+    padding: 7px 8px;
+    border-radius: 8px 8px 8px 2px;
+   
+    
+}
+.bot-pic.picture-container{
+    margin-top: 18px;
+}
+.message.user-message{
+   
+    flex-direction: column;
+    align-items: flex-end;
+}
+.picture-container img{
+   width: 40px;
+}
+.message-text{
+    color: rgb(255, 255, 255);
+    background-color: var(--primary-color);
+    padding: 8px 8px;
+    border-radius: 8px 8px 1px 8px;
+    max-width: 75%;
+  
+}
+.chatbot-footer img{
+    width: 20px;
+}
+.thinking-bot{
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    gap: 3px;
+    
+}
+.content{
+    padding-right: 20px;
+}
+.dot{
+  width: 7px;
+  height: 7px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 50%;
+  animation: animate-dot 1s linear infinite;
+}
+.thinking-bot .dot:nth-child(1){
+    animation-delay: 600ms;
+}
+.thinking-bot.dot:nth-child(2){
+    animation-delay: 800ms;
+}
+.thinking-bot.dot:nth-child(3){
+    animation-delay: 900ms;
+}
+@keyframes animate-dot {
+    0%,100%{
+        opacity: 1;
+        transform: scale(1);
+    }
+    50%{
+        opacity: 0.4;
+        transform: scale(0.9);
+    }
+}
+.chatbot-footer .content{
+    outline: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 8px 0px 20px;
+    width: 90%;
+    border-radius: 30px;
+
+}
+.chatbot-footer{
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+   padding: 10px 0px;
+}
+.chatbot-footer textarea{
+    
+    resize: none;
+    outline: none;
+    border: none;
+    min-height: 37px;
+    width: 80%;
+   padding-top: 10px;
+   
+}
+.chatbot-footer .sendMessage{
+    background-color: blanchedalmond;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.chatbot-footer .sendMessage i{
+    color: white;
+}
+.chatbot-footer .content:focus-within{
+    outline: 1.5px solid var(--primary-color);
+}
