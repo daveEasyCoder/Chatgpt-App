@@ -90,7 +90,7 @@ body{
     background-color: rgb(247, 247, 247);
     padding: 7px 8px;
     border-radius: 8px 8px 8px 2px;
-   
+    line-height: 24px;
     
 }
 .bot-pic.picture-container{
