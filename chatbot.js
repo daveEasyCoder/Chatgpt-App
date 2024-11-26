@@ -21,7 +21,8 @@ window.addEventListener('keyup',(event) => {
 
  const findMessage = () => {
     const inputValue = userInput.value.trim();
-    userMessage.answer = inputValue;
+    userMessage.answer = inputValue; /* clear the text inside the text Area */
+
     if (inputValue) {
         const messageEl = ` <div class="message-text">${userMessage.answer}</div>`;
         const message = createMessage(messageEl,"user-message");
@@ -52,6 +53,7 @@ const renderBotMessage = () => {
 const createMessage = (MessageEl,classes) => {
     const messageBox = document.createElement("div");
     messageBox.innerHTML = MessageEl;
+    userInput.value = "";
     messageBox.classList.add("message",classes);
     return messageBox;
 }
@@ -74,9 +76,6 @@ const fetchMessage = async(item) =>{
         const data = await response.json();
         const generatedMessage = data.candidates[0].content.parts[0].text;
         item.innerHTML = generatedMessage;
-         /* clear the text inside the text Area */
-         userInput.value = "";
-         console.log(item);
     } catch (error) {
         console.log(error);
     }
