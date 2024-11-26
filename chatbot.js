@@ -2,12 +2,24 @@ const sendBtn = document.querySelector('.sendMessage');
 const userInput = document.querySelector('.user-input');
 const chatBody = document.querySelector('.chatbot-body');
 
-const API_KEY = "AIzaSyAe6FH3UPGg1gOQZx6ncz4hYgcZeHhTWmk";
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+const string = 'AIzaSyCXQ1G-K-Xd6c8jBPnlWX8hlVXm2ZzJ1FM';
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${string}`;
 const userMessage = {
     answer:null
 }
 sendBtn.addEventListener('click',()=>{
+    findMessage();
+
+})
+
+window.addEventListener('keyup',(event) => {
+    if (event.key === "Enter") {
+     findMessage();
+    }
+ })
+
+
+ const findMessage = () => {
     const inputValue = userInput.value.trim();
     userMessage.answer = inputValue;
     if (inputValue) {
@@ -16,9 +28,7 @@ sendBtn.addEventListener('click',()=>{
         chatBody.appendChild(message);
         setTimeout(renderBotMessage,600);     
     }
-})
-
-
+ }
 
 /* display chatbot message */
 const renderBotMessage = () => {
